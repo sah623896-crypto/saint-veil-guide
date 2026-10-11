@@ -12,19 +12,21 @@
 <link rel="stylesheet" href="bgm-player.css" />
 <link rel="stylesheet" href="persona.css" />
 <link rel="stylesheet" href="user-portraits.css" />
+<link rel="stylesheet" href="shortcuts.css" />
 <script src="config.js" defer></script>
 <script src="gallery.js" defer></script>
 <script src="script.js" defer></script>
 <script src="bgm-player.js" defer></script>
 <script src="persona.js" defer></script>
 <script src="user-portraits.js" defer></script>
+<script src="shortcuts.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 바로가기</a>
 <header class="site-header"><div class="nav-inner">
 <a class="brand" href="#top"><span class="brand-mark">S<span>V</span></span><span class="brand-copy">SAINT-VEIL <small>MY LITTLE WORLD · 2078</small></span></a>
 <button class="menu-toggle" type="button" aria-label="메뉴 펼치기" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-<nav id="site-nav" class="site-nav" aria-label="사이트 목차"><a href="#start">HOME</a><a href="#world">WORLD</a><a href="#characters">CHARACTER</a><a href="#routes">ROUTE</a><a href="#album">ALBUM</a><a href="#user-portraits">USER ICONS</a><a href="#play">EVENT</a><a href="#creator">NOTICE</a></nav>
+<nav id="site-nav" class="site-nav" aria-label="사이트 목차"><a href="#start">HOME</a><a href="#world">WORLD</a><a href="#characters">CHARACTER</a><a href="#routes">ROUTE</a><a href="#album">ALBUM</a><a href="#user-portraits">USER ICONS</a><a href="#play">EVENT</a><a href="#shortcuts">TOOLS</a><a href="#creator">NOTICE</a></nav>
 </div></header>
 <main id="main">
 <section class="hero hero-v2" id="top">
@@ -55,7 +57,7 @@
   <div id="bgm-diagnostics" class="bgm-diagnostics" hidden aria-live="polite"></div>
   <audio id="bgm-audio" preload="none" loop></audio>
 </div></div></div>
-<div class="side-window side-menu"><div class="side-titlebar"><span>QUICK MENU</span><span>☷</span></div><nav aria-label="빠른 메뉴"><a href="#start"><span>⌂</span> MY HOME</a><a href="#world"><span>▤</span> WORLD FILE</a><a href="#characters"><span>♧</span> CHARACTER</a><a href="#routes"><span>✧</span> START ROUTE</a><a href="#album"><span>▧</span> ALBUM</a><a href="#play"><span>✳</span> EVENT BOARD</a><a href="#profile"><span>⚄</span> PERSONA DICE</a><a href="#user-portraits"><span>▧</span> USER ICONS</a><a href="#creator"><span>☰</span> NOTICE</a></nav></div>
+<div class="side-window side-menu"><div class="side-titlebar"><span>QUICK MENU</span><span>☷</span></div><nav aria-label="빠른 메뉴"><a href="#start"><span>⌂</span> MY HOME</a><a href="#world"><span>▤</span> WORLD FILE</a><a href="#characters"><span>♧</span> CHARACTER</a><a href="#routes"><span>✧</span> START ROUTE</a><a href="#album"><span>▧</span> ALBUM</a><a href="#play"><span>✳</span> EVENT BOARD</a><a href="#profile"><span>⚄</span> PERSONA DICE</a><a href="#user-portraits"><span>▧</span> USER ICONS</a><a href="#shortcuts"><span>⌘</span> SHORTCUTS</a><a href="#creator"><span>☰</span> NOTICE</a></nav></div>
 <div class="side-memo"><span class="memo-pin">✦</span><small>STICKY NOTE</small><p>이곳에 남기는 하루는<br/>당신의 선택으로 완성돼요.</p><span>2078.05 · SAINT-VEIL</span></div>
 </aside><div class="content-main">
 <section id="start" class="section page-width start-section"><p class="eyebrow">START HERE / 여행자 안내</p><div class="section-heading"><h2>생트베일에 처음 오셨나요?</h2><p>모든 설정을 외울 필요는 없어요. 중요한 부분만 알고 시작해도 충분합니다.</p></div>
@@ -164,6 +166,46 @@
 <div class="album-counter" id="album-counter" aria-live="polite">앨범을 불러오는 중입니다…</div><div class="album-grid" id="album-grid"></div><div class="album-empty" id="album-empty" hidden><span>▧</span><strong>아직 등록된 이미지가 없어요.</strong><p>GitHub 저장소의 <code>assets/gallery/ash</code> 등 공개 폴더에 파일을 올리면 이곳에 자동으로 표시돼요.</p></div>
 <div class="album-guide"><span>GALLERY MEMO</span><p><b>공개 앨범</b>은 방문자 누구나 볼 수 있어요. 교체·미사용 백업 이미지는 공개 저장소에 넣지 말고, 별도의 <b>비공개 저장소나 개인 백업 ZIP</b>으로 보관해 주세요.</p></div></div></section>
 <div class="lightbox" id="gallery-lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 크게 보기"><button type="button" id="lightbox-close" class="lightbox-close" aria-label="닫기">✕</button><img id="lightbox-image" alt=""/><p id="lightbox-caption"></p></div>
+<section id="shortcuts" class="section page-width shortcut-section"><p class="eyebrow">QUICK COMMANDS / 리핀 단축어 안내</p>
+<div class="section-heading"><h2>단축어 10개 사용 가이드</h2><p>리핀 채팅에서 <b>/</b>로 불러오는 단축어들을 모았어요. 진행 점검부터 깜짝 이벤트까지, 필요한 순간에 골라 사용해 주세요.</p></div>
+<div class="shortcut-overview"><span><strong>04</strong>설정·서사 관리</span><span><strong>03</strong>범용 이벤트</span><span><strong>03</strong>캐릭터 전용</span></div>
+<div class="shortcut-groups"><details class="shortcut-category" open><summary><span><small>01 / STORY & SETTINGS</small><strong>설정·서사 관리</strong><em>설정 오류나 긴 대화를 정리할 때</em></span><span class="shortcut-chevron" aria-hidden="true">⌄</span></summary>
+<div class="shortcut-card-grid"><article class="shortcut-card shortcut-teal">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/설정반영</span><button class="shortcut-copy" type="button" data-copy="/설정반영" aria-label="/설정반영 단축어 이름 복사">명령어 복사</button></div>
+<h4>수정 설정 점검·반영</h4><p>프로필·프롬프트·로어북을 수정한 뒤 변경 내용과 설정 충돌을 점검해요. 수정한 설정은 먼저 리핀에 저장해 주세요.</p><small>추천 상황 · 설정 변경 직후</small>
+</article><article class="shortcut-card shortcut-teal">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/서사백업</span><button class="shortcut-copy" type="button" data-copy="/서사백업" aria-label="/서사백업 단축어 이름 복사">명령어 복사</button></div>
+<h4>누적 서사·대화프로필 백업</h4><p>실제로 일어난 사건, 관계 변화, 단서와 현재 상황을 최대 500자로 통합해요. 결과를 대화프로필 하단에 붙여넣으면 돼요.</p><small>추천 상황 · 대화가 많이 쌓였을 때</small>
+</article><article class="shortcut-card shortcut-teal">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/진행복구</span><button class="shortcut-copy" type="button" data-copy="/진행복구" aria-label="/진행복구 단축어 이름 복사">명령어 복사</button></div>
+<h4>캐릭터·서술·진행 방식 복구</h4><p>이탈한 말투·문체·장면 연속성을 점검하고 현재 서사와 관계는 유지한 채 표현 방식을 바로잡아요.</p><small>추천 상황 · 문체나 말투가 달라졌을 때</small>
+</article><article class="shortcut-card shortcut-teal">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/캐붕점검</span><button class="shortcut-copy" type="button" data-copy="/캐붕점검" aria-label="/캐붕점검 단축어 이름 복사">명령어 복사</button></div>
+<h4>캐릭터·설정 일관성 점검</h4><p>성격·호칭·관계 단계·시간·장소·비밀 정보의 모순을 점검해요. 정상적인 성장과 설정 오류를 구분해요.</p><small>추천 상황 · 이상한 반응이나 설정 충돌이 보일 때</small>
+</article></div></details><details class="shortcut-category" ><summary><span><small>02 / ANY ROUTE</small><strong>범용 이벤트</strong><em>세 루트 어디서든 사용할 수 있는 단축어</em></span><span class="shortcut-chevron" aria-hidden="true">⌄</span></summary>
+<div class="shortcut-card-grid"><article class="shortcut-card shortcut-gold">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/속마음</span><button class="shortcut-copy" type="button" data-copy="/속마음" aria-label="/속마음 단축어 이름 복사">명령어 복사</button></div>
+<h4>속마음 엿보기</h4><p>현재 장면에서 등장인물의 드러나지 않은 감정을 참고용으로 살펴봐요. {{user}}의 마음을 대신 정하거나 비밀의 진상을 자동 확정하지 않아요.</p><small>추천 상황 · 인물의 감정선이 궁금할 때</small>
+</article><article class="shortcut-card shortcut-gold">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/돌발사건</span><button class="shortcut-copy" type="button" data-copy="/돌발사건" aria-label="/돌발사건 단축어 이름 복사">명령어 복사</button></div>
+<h4>돌발 사건 — 범용</h4><p>현재 장면과 장소에 어울리는 예상 밖의 사건을 불러와요. 기존 사건의 흐름과 {{user}}의 선택권을 유지하며 사용해 주세요.</p><small>추천 상황 · 전개에 작은 변화가 필요할 때</small>
+</article><article class="shortcut-card shortcut-gold">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/럭키스케베</span><button class="shortcut-copy" type="button" data-copy="/럭키스케베" aria-label="/럭키스케베 단축어 이름 복사">명령어 복사</button></div>
+<h4>럭키스케베 — 범용</h4><p>우연한 근접 상황이나 가벼운 민망함을 유도하는 이벤트예요. 성인 캐릭터 사이에서만 사용하고 반응·접촉·관계는 강제하지 않아요.</p><small>추천 상황 · 가벼운 로맨틱 코미디가 필요할 때</small>
+</article></div></details><details class="shortcut-category" ><summary><span><small>03 / CHARACTER ROUTES</small><strong>캐릭터 전용 이벤트</strong><em>애쉬·이안·루카 각자의 장면을 위한 단축어</em></span><span class="shortcut-chevron" aria-hidden="true">⌄</span></summary>
+<div class="shortcut-card-grid"><article class="shortcut-card shortcut-violet">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/루카</span><button class="shortcut-copy" type="button" data-copy="/루카" aria-label="/루카 단축어 이름 복사">명령어 복사</button></div>
+<h4>루카 전용 이벤트</h4><p>루카의 정비소·개조 객차·폐철도·침묵의 온실 등 설정과 잘 맞는 개인 이벤트를 불러와요.</p><small>추천 상황 · 루카 중심 장면</small>
+</article><article class="shortcut-card shortcut-violet">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/이안</span><button class="shortcut-copy" type="button" data-copy="/이안" aria-label="/이안 단축어 이름 복사">명령어 복사</button></div>
+<h4>이안 전용 이벤트</h4><p>이안의 기록보관소·피아노·편지·호숫가 별장 등 설정과 잘 맞는 개인 이벤트를 불러와요.</p><small>추천 상황 · 이안 중심 장면</small>
+</article><article class="shortcut-card shortcut-violet">
+<div class="shortcut-card-heading"><span class="shortcut-pill">/애쉬</span><button class="shortcut-copy" type="button" data-copy="/애쉬" aria-label="/애쉬 단축어 이름 복사">명령어 복사</button></div>
+<h4>애쉬 전용 이벤트</h4><p>애쉬의 순찰·보안 업무·개인 주택·시계 수리 등 설정과 잘 맞는 개인 이벤트를 불러와요.</p><small>추천 상황 · 애쉬 중심 장면</small>
+</article></div></details></div>
+<p class="shortcut-guide-note"><b>사용법</b> · 리핀 작품 채팅에서 <b>/</b>를 입력하고 이름을 선택하세요. 위 <b>명령어 복사</b> 버튼은 단축어 이름만 복사하며, 홈페이지에서 RP를 직접 실행하지는 않습니다.<br>
+<b>참고</b> · 서사백업은 실행 결과를 대화프로필 하단에 붙여넣어 관리해 주세요. 설정반영은 변경된 프롬프트를 리핀에 실제로 저장한 뒤 사용해 주세요. 사건·속마음 단축어는 기존 서사와 {{user}}의 선택권을 우선합니다.</p>
+<div class="shortcut-toast" id="shortcut-toast" role="status" aria-live="polite"></div></section>
 <section id="creator" class="section page-width"><p class="eyebrow">CREATOR'S NOTE / 제작자 코멘트</p><div class="section-heading"><h2>플레이 전 참고해 주세요!</h2><p>제작 기준, 이미지 수량, 오류 제보 안내를 모아두었어요. 자세한 내용은 필요한 항목만 펼쳐 보시면 됩니다.</p></div><div class="creator-folds"><details class="fold creator-fold" id="creator-01">
 <summary><span class="fold-title"><small>01 / RECOMMENDED MODELS</small><strong>추천 모델</strong></span><span class="fold-caret" aria-hidden="true"></span></summary>
 <div class="fold-content"><b>제작 기준:</b> 플래시 3.7 / 플래시 3.8 / 프로 2.5<div style="margin-top:9px;">다른 모델에서는 문체나 캐릭터의 반응이 달라질 수 있어요! 저는 <b>프로 2.5</b>를 주로 사용합니다. (최근 젬 계열 아이들이 말썽이라ㅠㅠ)</div></div></details>
@@ -178,7 +220,7 @@
 <div class="fold-content"><b>리핀 기본 이미지 100장:</b> 애쉬 34장 / 이안 33장 / 루카 33장. 홈페이지 앨범에는 별도로 만든 <b>보너스 이미지 3장</b>도 추가했어요.<div style="margin-top:9px;">각 캐릭터마다 <b>성인용 HL(남녀 커플) 이미지 3장씩</b> 포함되어 있어요. 그 외 이미지는 유저 성별을 특정하지 않도록 제작했어요. 성인용 컷의 연출만 HL 기준이고, <b>유저 캐릭터의 성별과 관계 루트는 자유</b>예요.</div><div style="background:#E9EEEE;border-left:2px solid #947D60;padding:11px;margin-top:11px;font-size:12px;"><b>애쉬의 공식 설정은 오른팔 군용 의수</b>예요. 일부 이미지에서는 의수가 반대쪽 팔에 있거나 일반 팔처럼 보일 수 있어요. 이 경우 <b>텍스트 설정을 우선</b>해 주세요.</div></div></details>
 <details class="fold creator-fold" id="creator-05">
 <summary><span class="fold-title"><small>05 / ETC</small><strong>기타 안내 · 오류 제보</strong></span><span class="fold-caret" aria-hidden="true"></span></summary>
-<div class="fold-content">작품 소개와 커스텀 설명은 <b>리핀 화이트 테마 기준</b>으로 만들었어요. 다른 테마에서는 색감과 가독성이 달라질 수 있어요.<div style="margin-top:9px;">비밀 설정은 플레이하면서 밝혀지는 구조예요. 처음부터 모든 걸 알고 있을 필요는 없습니다.</div><div style="margin-top:9px;">캐릭터가 유저의 행동이나 감정을 대신 결정하거나 말투가 달라지면 OOC로 수정해 주세요. 단축어에는 캐릭터별 이벤트, 돌발 사건, 럭키스케베, 속마음 출력 등을 활용할 수 있어요.</div><div style="margin-top:9px;">부족한 부분이나 오류가 있다면 조금씩 수정해 나가겠습니다. 저도 테스트 중이라 자유롭게 의견 말씀해주세요⋯.!! 원하는 방향으로 즐겨주시면 감사하겠습니다~!!!</div></div></details></div><p class="creator-end">부족한 부분이나 오류가 있다면 조금씩 수정해 나가겠습니다. 저도 테스트 중이라 자유롭게 의견 말씀해주세요⋯.!! 원하는 방향으로 즐겨주시면 감사하겠습니다~!!!</p></section>
+<div class="fold-content">작품 소개와 커스텀 설명은 <b>리핀 화이트 테마 기준</b>으로 만들었어요. 다른 테마에서는 색감과 가독성이 달라질 수 있어요.<div style="margin-top:9px;">비밀 설정은 플레이하면서 밝혀지는 구조예요. 처음부터 모든 걸 알고 있을 필요는 없습니다.</div><div style="margin-top:9px;">캐릭터가 유저의 행동이나 감정을 대신 결정하거나 말투가 달라지면 OOC로 수정해 주세요. 단축어에는 캐릭터별 이벤트, 돌발 사건, 럭키스케베, 속마음 출력 등을 활용할 수 있어요. <a href="#shortcuts">단축어 10개 사용 가이드 ↗</a></div><div style="margin-top:9px;">부족한 부분이나 오류가 있다면 조금씩 수정해 나가겠습니다. 저도 테스트 중이라 자유롭게 의견 말씀해주세요⋯.!! 원하는 방향으로 즐겨주시면 감사하겠습니다~!!!</div></div></details></div><p class="creator-end">부족한 부분이나 오류가 있다면 조금씩 수정해 나가겠습니다. 저도 테스트 중이라 자유롭게 의견 말씀해주세요⋯.!! 원하는 방향으로 즐겨주시면 감사하겠습니다~!!!</p></section>
 </div></div></main>
 <footer class="footer"><div class="page-width footer-inner"><div><span class="footer-brand">SAINT-VEIL ARCHIVE</span><p>전쟁이 끝난 도시에서, 당신만의 이야기를 시작하세요.</p></div><div class="footer-links"><a href="#top">맨 위로 ↑</a><a href="https://litychat.com/share/content/314ccbd8-975f-4720-af74-603fef170cf5" target="_blank" rel="noopener noreferrer">리핀에서 플레이 ↗</a></div><div class="footer-small">2078 · VESPERIA / ASHES OF SOLID THINGS</div></div></footer>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>

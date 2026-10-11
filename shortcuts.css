@@ -1,0 +1,31 @@
+/* Shortcuts guide — v7, inherits SAINT-VEIL palette */
+.shortcut-section{border-top:1px solid #dce8df;background:#f7f9f6}
+.shortcut-section .section-heading{margin-bottom:20px}
+.shortcut-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:19px}
+.shortcut-overview span{display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #dce7e1;border-radius:6px;background:#fffefa;padding:12px 7px;color:#657c7e;font-size:12px;font-weight:650}
+.shortcut-overview strong{font:700 22px Georgia,serif;color:#547b7e}
+.shortcut-category{margin:10px 0;border:1px solid #d7e1dc;border-radius:8px;background:#fffefa;overflow:hidden}
+.shortcut-category>summary{list-style:none;display:flex;gap:12px;justify-content:space-between;align-items:center;padding:16px 19px;cursor:pointer}
+.shortcut-category>summary::-webkit-details-marker{display:none}
+.shortcut-category>summary:hover{background:#f1f6f1}
+.shortcut-category>summary span:first-child{display:flex;flex-direction:column;gap:3px}
+.shortcut-category>summary small{font-size:10px;letter-spacing:1.15px;color:#8b9a95;font-weight:800}
+.shortcut-category>summary strong{font-size:17px;color:#3e5659}
+.shortcut-category>summary em{font-size:12px;color:#81918c;font-style:normal}
+.shortcut-chevron{font-size:22px;color:#819e97;transition:transform .2s}
+.shortcut-category[open] .shortcut-chevron{transform:rotate(180deg)}
+.shortcut-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;padding:14px;border-top:1px solid #e7eeea}
+.shortcut-card{min-width:0;display:flex;flex-direction:column;background:#fff;border:1px solid #e0e8e2;border-left:3px solid #648e91;border-radius:5px;padding:15px 15px 12px}
+.shortcut-card.shortcut-gold{border-left-color:#a88a60}.shortcut-card.shortcut-violet{border-left-color:#8976a5}
+.shortcut-card-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.shortcut-pill{display:inline-block;padding:3px 9px;background:#ebf3f1;border:1px solid #d3e2dd;border-radius:4px;color:#517d80;font-size:12px;font-weight:800;white-space:nowrap}
+.shortcut-gold .shortcut-pill{background:#f6f0e7;border-color:#e8dfd3;color:#9b7952}
+.shortcut-violet .shortcut-pill{background:#f0edf6;border-color:#dfd7e8;color:#807199}
+.shortcut-copy{border:1px solid #d9e2dd;border-radius:4px;background:#fff;color:#617879;padding:5px 8px;min-width:0;white-space:nowrap;font-size:11px;font-weight:650}
+.shortcut-copy:hover{background:#ebf3ef;color:#345e62}
+.shortcut-card h4{font-size:14px;color:#3f5457;margin:12px 0 5px;line-height:1.55}
+.shortcut-card p{margin:0;color:#627477;font-size:12px;line-height:1.85;flex:1}
+.shortcut-card small{display:block;color:#83938d;font-size:11px;margin-top:12px;padding-top:9px;border-top:1px dashed #e3eae6}
+.shortcut-guide-note{border-left:3px solid #7d9e9d;background:#eaf1ed;padding:14px 16px;margin:19px 0 0;font-size:12px;line-height:2;color:#536b6e}
+.shortcut-toast{min-height:15px;font-size:11px;color:#587c70;margin-top:7px}
+@media(max-width:760px){.shortcut-card-grid{grid-template-columns:1fr}.shortcut-overview{gap:5px}.shortcut-overview span{flex-direction:column;gap:2px;font-size:10px;padding:9px 4px}.shortcut-overview strong{font-size:18px}.shortcut-category>summary{padding:14px 12px}.shortcut-card-grid{padding:10px}.shortcut-card{padding:12px}}
