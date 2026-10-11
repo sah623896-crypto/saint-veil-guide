@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#e9eced" />
+<meta name="theme-color" content="#282b2e" />
 <meta name="description" content="재가 되어버린 고체(固體) — 생트베일 세계관·캐릭터·플레이 가이드. 전쟁이 끝난 도시에서 시작되는 기억과 음악의 이야기." />
 <title>생트베일 아카이브 | 재가 되어버린 고체(固體)</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="persona.css" />
 <link rel="stylesheet" href="user-portraits.css" />
 <link rel="stylesheet" href="shortcuts.css" />
+<link rel="stylesheet" href="archive-v8.css" />
 <script src="config.js" defer></script>
 <script src="gallery.js" defer></script>
 <script src="script.js" defer></script>
@@ -24,18 +25,20 @@
 <body>
 <a class="skip-link" href="#main">본문으로 바로가기</a>
 <header class="site-header"><div class="nav-inner">
-<a class="brand" href="#top"><span class="brand-mark">S<span>V</span></span><span class="brand-copy">SAINT-VEIL <small>MY LITTLE WORLD · 2078</small></span></a>
+<a class="brand" href="#top"><span class="brand-mark">S<span>V</span></span><span class="brand-copy">SAINT-VEIL <small>THE MEMORY DOSSIER · 2078</small></span></a>
 <button class="menu-toggle" type="button" aria-label="메뉴 펼치기" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
 <nav id="site-nav" class="site-nav" aria-label="사이트 목차"><a href="#start">HOME</a><a href="#world">WORLD</a><a href="#characters">CHARACTER</a><a href="#routes">ROUTE</a><a href="#album">ALBUM</a><a href="#user-portraits">USER ICONS</a><a href="#play">EVENT</a><a href="#shortcuts">TOOLS</a><a href="#creator">NOTICE</a></nav>
 </div></header>
 <main id="main">
 <section class="hero hero-v2" id="top">
 <div class="hero-particles" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span></div>
-<div class="hero-content page-width"><div class="hero-message"><p class="eyebrow hero-eyebrow">SAINT-VEIL / WORLD SELECT / 2078</p><div class="hero-mini-line"><span class="pulse-dot"></span> POSTWAR MEMORY ARCHIVE <span class="hero-serial">FILE NO. 001</span></div><h1>재가 되어버린 고체<span>(固體)</span></h1><p class="hero-en">ASHES OF SOLID THINGS</p><p class="hero-deck">전쟁이 끝난 도시.<br/>끝나지 못한 음악과 세 남자의 이야기.</p><div class="hero-actions"><a class="button button-light" href="#start">ENTER WORLD <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#world">WORLD GUIDE</a></div></div>
-<div class="selection-terminal" aria-label="등장인물 파일 바로가기"><div class="terminal-head"><span>SELECT FILE</span><span class="terminal-lights"><i></i><i></i><i></i></span></div><a href="#character-ash" class="terminal-entry terminal-ash"><span class="terminal-id">01</span><span class="terminal-name"><strong>애쉬 벨몬트</strong><small>ASH BELMONT · SECURITY</small></span><span class="terminal-arrow">↗</span></a><a href="#character-ian" class="terminal-entry terminal-ian"><span class="terminal-id">02</span><span class="terminal-name"><strong>이안 에버렛</strong><small>IAN EVERETT · ARCHIVE</small></span><span class="terminal-arrow">↗</span></a><a href="#character-luca" class="terminal-entry terminal-luca"><span class="terminal-id">03</span><span class="terminal-name"><strong>루카 세레인</strong><small>LUCA SERAIN · INDEPENDENT</small></span><span class="terminal-arrow">↗</span></a><div class="terminal-foot">THREE STORIES · ONE CITY <span>◎</span></div></div>
+<div class="hero-content page-width"><div class="hero-message"><p class="eyebrow hero-eyebrow">VESPERIA / MEMORY ARCHIVE / 2078</p><div class="hero-mini-line"><span class="pulse-dot"></span> RECOVERED RECORDS OF SAINT-VEIL <span class="hero-serial">FILE NO. 001</span></div><h1>재가 되어버린 고체<span>(固體)</span></h1><p class="hero-en">ASHES OF SOLID THINGS</p><p class="hero-deck">전쟁이 끝난 도시.<br/>끝나지 못한 음악과 세 남자의 이야기.</p><div class="hero-actions"><a class="button button-light" href="#start">ENTER WORLD <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#world">WORLD GUIDE</a></div></div>
+<div class="archive-hero-aside">
+<figure class="archive-cover-card"><img src="assets/covers/archive-vertical.webp" alt="바랜 악보와 회중시계, 꽃과 군용 기록 장치가 놓인 작품 세계관 표지" loading="eager" fetchpriority="high"/><figcaption><span>CASE FILE / 2078.05</span><strong>기억은 재가 되어도 남는다</strong><small>THE RELICS OF SAINT-VEIL</small></figcaption></figure>
+<div class="selection-terminal" aria-label="등장인물 파일 바로가기"><div class="terminal-head"><span>SELECT FILE</span><span class="terminal-lights"><i></i><i></i><i></i></span></div><a href="#character-ash" class="terminal-entry terminal-ash"><span class="terminal-id">01</span><span class="terminal-name"><strong>애쉬 벨몬트</strong><small>ASH BELMONT · SECURITY</small></span><span class="terminal-arrow">↗</span></a><a href="#character-ian" class="terminal-entry terminal-ian"><span class="terminal-id">02</span><span class="terminal-name"><strong>이안 에버렛</strong><small>IAN EVERETT · ARCHIVE</small></span><span class="terminal-arrow">↗</span></a><a href="#character-luca" class="terminal-entry terminal-luca"><span class="terminal-id">03</span><span class="terminal-name"><strong>루카 세레인</strong><small>LUCA SERAIN · INDEPENDENT</small></span><span class="terminal-arrow">↗</span></a><div class="terminal-foot">THREE STORIES · ONE CITY <span>◎</span></div></div></div>
 </div><div class="hero-bottom" aria-hidden="true"><span>▣ SYSTEM READY</span><span>SCROLL TO EXPLORE ↓</span></div></section>
 <div class="content-shell"><aside class="mini-sidebar" aria-label="미니홈피 사이드바">
-<div class="side-window side-profile"><div class="side-titlebar"><span>✦ MY LITTLE ARCHIVE</span><span>× □</span></div><div class="side-profile-inner"><div class="side-avatar"><div class="avatar-symbol">S<span>V</span></div><span class="avatar-online">ONLINE</span></div><strong>SAINT-VEIL</strong><p>잊혀진 선율이 머무는 도시</p><div class="side-stats"><span>TODAY <b>2078</b></span><span>VISIT <b>04:17</b></span></div><div class="side-status bgm-widget" aria-label="세계관 음악 플레이어">
+<div class="side-window side-profile"><div class="side-titlebar"><span>✦ PERSONAL ARCHIVE</span><span>× □</span></div><div class="side-profile-inner"><div class="side-avatar"><div class="avatar-symbol">S<span>V</span></div><span class="avatar-online">ONLINE</span></div><strong>SAINT-VEIL</strong><p>잊혀진 선율이 머무는 도시</p><div class="side-stats"><span>TODAY <b>2078</b></span><span>VISIT <b>04:17</b></span></div><div class="side-status bgm-widget" aria-label="세계관 음악 플레이어">
   <small>NOW RECORDING <span class="bgm-status" id="bgm-status">READY</span></small>
   <span id="bgm-title">♪ Ashes of Solid Things</span>
   <div class="bgm-controller">
