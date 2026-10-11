@@ -53,7 +53,7 @@
     luca:['외곽 폐온실의 식물을 관찰하다 마주칠 수 있음.','버려진 철도 근처에서 길을 잘못 들어 마주칠 수 있음.','외곽 장치 부품을 살피러 갔다가 온실 쪽으로 이동할 수 있음.']
   };
   const ids=['identity','species','appearance','costume','personality','voice','job','home','hobbies','skills','past','goal','bond','hooks'];
-  const labels={identity:'이름 · 나이',species:'종족 · 신체',appearance:'외형 · 과캐디',costume:'의상',personality:'성격',voice:'말투 · 습관',job:'직업',home:'거주지',hobbies:'취향 · 취미',skills:'특기 · 한계',past:'과거',goal:'현재 목표',bond:'관계 성향',hooks:'세 루트 연결'};
+  const labels={identity:'이름 · 나이',species:'종족 · 신체',appearance:'외형 · 과캐디',costume:'의상',personality:'성격',voice:'말투 · 습관',job:'직업',home:'거주지',hobbies:'취향 · 취미',skills:'특기 · 한계',past:'과거',goal:'현재 목표',bond:'관계 성향',hooks:'[작성용 메모 · 최종 복사 제외] 세 루트 연결'};
   const state={},locked=new Set();let rollNo=0;let lastGender='female',lastSpecies='human',lastMood='soft';
   function selected(id,arr){const v=$(id).value;return v==='random'?choose(arr):v;}
   function randomItem(id,gender,species,mood){
@@ -81,9 +81,14 @@
       default:return '';
     }
   }
+  // The final profile contains only player character facts. Guidance notes are displayed separately.
   function buildText(){
-    return `# USER CHAR\n\n## 기본 정보\n- 이름 / 나이: ${state.identity}\n- 종족: ${state.species}\n- 직업: ${state.job}\n- 거주지: ${state.home}\n\n## 외형\n${state.appearance}\n- 평소 의상: ${state.costume}\n\n## 성격\n${state.personality}\n\n## 말투와 생활 습관\n${state.voice}\n\n## 취향과 생활\n${state.hobbies}\n\n## 기술과 한계\n${state.skills}\n\n## 과거\n${state.past}\n\n## 현재 목표\n${state.goal}\n\n## 관계 성향\n${state.bond}\n\n## 루트별 첫 만남 연결 예시 (선택)\n${state.hooks}\n\n## RP 진행 참고\n- USER의 대사·행동·생각·감정·선택은 USER가 직접 결정함.\n- 애쉬·이안·루카와의 기존 인연이나 연애는 확정되지 않음.\n- 메인 미스터리와 회백사건의 진상은 처음부터 알지 못함.\n- 작성된 설정은 예시이며 USER가 자유롭게 수정할 수 있음.`;
+    return `# {{user}} 캐릭터 프로필\n\n## 기본 정보\n- 이름 / 나이: ${state.identity}\n- 종족: ${state.species}\n- 직업: ${state.job}\n- 거주지: ${state.home}\n\n## 외형\n${state.appearance}\n- 평소 의상: ${state.costume}\n\n## 성격\n${state.personality}\n\n## 말투와 생활 습관\n${state.voice}\n\n## 취향과 생활\n${state.hobbies}\n\n## 기술과 한계\n${state.skills}\n\n## 과거\n${state.past}\n\n## 현재 목표\n${state.goal}\n\n## 관계 성향\n${state.bond}`;
   }
+  function buildNotes(){
+    return `## [작성용 메모 / 최종 등록 전 삭제] 루트별 첫 만남 연결 예시 (선택)\n${state.hooks}\n\n## [작성용 메모 / 최종 등록 전 삭제] RP 진행 참고\n- {{user}}의 대사·행동·생각·감정·선택은 {{user}}가 직접 결정함.\n- 애쉬·이안·루카와의 기존 인연이나 연애는 확정되지 않음.\n- 메인 미스터리와 회백사건의 진상은 처음부터 알지 못함.\n- 작성된 설정은 예시이며 {{user}}가 자유롭게 수정할 수 있음.\n\n※ 위 두 항목은 작성 참고 전용이며 최종 복사·TXT 저장에서 자동 제외됩니다.`;
+  }
+
   function render(){
     $('persona-empty').hidden=true;$('persona-filled').hidden=false;
     $('persona-file-no').textContent=String(rollNo).padStart(3,'0');
@@ -93,7 +98,7 @@
     $('persona-dice-number').textContent=String(rand(1,6));
     fieldsContainer.replaceChildren();
     ids.forEach(id=>{
-      const box=document.createElement('div');box.className='persona-field';
+      const box=document.createElement('div');box.className='persona-field'+(id==='hooks'?' draft-only':'');
       const top=document.createElement('div');top.className='persona-field-top';
       const label=document.createElement('strong');label.textContent=labels[id];
       const buttons=document.createElement('span');buttons.className='persona-field-buttons';
@@ -112,7 +117,7 @@
       const value=document.createElement('div');value.className='persona-field-body';value.textContent=state[id];
       box.append(top,value);fieldsContainer.append(box);
     });
-    const text=buildText();$('persona-text').textContent=text;$('persona-count').textContent=`${text.length.toLocaleString('ko-KR')} / 5,000자`;
+    const text=buildText();$('persona-text').textContent=text;$('persona-notes-text').textContent=buildNotes();$('persona-count').textContent=`${text.length.toLocaleString('ko-KR')} / 5,000자`;
   }
   function roll(){
     if(!locked.has('identity') || !state.identity) lastGender=selected('persona-gender',['female','male','unspecified']);
@@ -133,6 +138,6 @@
   $('persona-copy').addEventListener('click',copyText);$('persona-copy-bottom').addEventListener('click',copyText);
   $('persona-download').addEventListener('click',()=>{
     const blob=new Blob(['\ufeff'+buildText()],{type:'text/plain;charset=utf-8'});
-    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='SAINT-VEIL_USER_CHAR.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
+    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='SAINT-VEIL_USER_PROFILE.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
   });
 })();

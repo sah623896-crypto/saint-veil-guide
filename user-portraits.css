@@ -1,0 +1,33 @@
+/* SAINT-VEIL / USER profile portraits only */
+.portrait-section .section-heading p{max-width:730px}
+.portrait-license{background:#e7eeea;border:1px solid #c6d8ce;border-left:4px solid #73968c;border-radius:8px;padding:16px 19px;margin:22px 0 18px;color:#3b5556;line-height:1.9}
+.portrait-license strong{display:block;font-size:14px;margin-bottom:5px}
+.portrait-license p{margin:3px 0;font-size:12px}
+.portrait-license .no{color:#8f5b56}
+.portrait-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 11px}
+.portrait-filter{background:#fff;border:1px solid #d0dfd8;padding:9px 14px;border-radius:99px;font-size:12px;color:#59716b;cursor:pointer;font-family:inherit}
+.portrait-filter.active{background:#344e55;border-color:#344e55;color:#fff}
+.portrait-counter{font-size:12px;color:#657d79;margin-bottom:16px}
+.portrait-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.portrait-card{background:#fff;border:1px solid #dce3df;border-radius:9px;overflow:hidden;padding:9px;text-align:left;cursor:pointer;color:inherit;font-family:inherit;transition:box-shadow .2s,transform .2s}
+.portrait-card:hover{box-shadow:0 8px 22px #263e4115;transform:translateY(-2px)}
+.portrait-card:focus-visible,.portrait-filter:focus-visible{outline:3px solid #79a9a1;outline-offset:2px}
+.portrait-image{display:block;width:100%;aspect-ratio:1.43;overflow:hidden;background:#e5eae7;border-radius:5px}
+.portrait-image img{width:100%;height:100%;display:block;object-fit:contain}
+.portrait-caption{display:flex;flex-direction:column;gap:4px;padding:10px 5px 4px}
+.portrait-caption small{font-size:10px;letter-spacing:.5px;color:#698e88}
+.portrait-caption strong{font-size:13px;color:#35474d}
+.portrait-caption>span{font-size:11px;color:#728282}
+.portrait-lightbox:not([hidden]){position:fixed;inset:0;z-index:250;background:#132026ed;padding:56px 18px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.portrait-lightbox img{max-width:min(97vw,1400px);max-height:calc(100vh - 200px);object-fit:contain;border:1px solid #cbd8d344}
+.portrait-lightbox p{font-size:12px;color:#fff;margin:0;text-align:center}
+.portrait-lightbox-download{display:inline-block;text-decoration:none;border:1px solid #f0f4ec;background:#f0f4ec;color:#32464e;border-radius:7px;padding:10px 18px;font-size:12px;font-weight:700}
+.portrait-lightbox-close{position:absolute;right:22px;top:18px;border:1px solid #fff7;background:#ffffff18;color:white;border-radius:5px;padding:7px 13px;cursor:pointer}
+.persona-note-alert{background:#fff7e9;border:1px solid #e9d7b6;border-radius:7px;padding:12px 14px;margin:14px 0;color:#795d3d;font-size:12px;line-height:1.7}
+.persona-draft-notes{margin:15px 0 0;background:#fff9f0;border:1px solid #e7d7b9;border-radius:8px;color:#674f33}
+.persona-draft-notes summary{cursor:pointer;padding:13px 15px;font-size:12px;font-weight:800}
+.persona-draft-notes pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:8px 16px 16px;font-size:12px;font-family:inherit;line-height:1.8}
+.persona-field.draft-only{border-color:#ead7af;background:#fffcf5}
+.persona-field.draft-only strong{color:#85623d}
+@media(max-width:830px){.portrait-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.portrait-grid{gap:8px}.portrait-card{padding:6px}.portrait-caption{padding:7px 3px}.portrait-caption>span{font-size:10px}.portrait-license{padding:12px 13px}}

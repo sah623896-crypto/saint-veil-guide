@@ -11,18 +11,20 @@
 <link rel="stylesheet" href="theme-v2.css" />
 <link rel="stylesheet" href="bgm-player.css" />
 <link rel="stylesheet" href="persona.css" />
+<link rel="stylesheet" href="user-portraits.css" />
 <script src="config.js" defer></script>
 <script src="gallery.js" defer></script>
 <script src="script.js" defer></script>
 <script src="bgm-player.js" defer></script>
 <script src="persona.js" defer></script>
+<script src="user-portraits.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 바로가기</a>
 <header class="site-header"><div class="nav-inner">
 <a class="brand" href="#top"><span class="brand-mark">S<span>V</span></span><span class="brand-copy">SAINT-VEIL <small>MY LITTLE WORLD · 2078</small></span></a>
 <button class="menu-toggle" type="button" aria-label="메뉴 펼치기" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
-<nav id="site-nav" class="site-nav" aria-label="사이트 목차"><a href="#start">HOME</a><a href="#world">WORLD</a><a href="#characters">CHARACTER</a><a href="#routes">ROUTE</a><a href="#album">ALBUM</a><a href="#play">EVENT</a><a href="#creator">NOTICE</a></nav>
+<nav id="site-nav" class="site-nav" aria-label="사이트 목차"><a href="#start">HOME</a><a href="#world">WORLD</a><a href="#characters">CHARACTER</a><a href="#routes">ROUTE</a><a href="#album">ALBUM</a><a href="#user-portraits">USER ICONS</a><a href="#play">EVENT</a><a href="#creator">NOTICE</a></nav>
 </div></header>
 <main id="main">
 <section class="hero hero-v2" id="top">
@@ -53,7 +55,7 @@
   <div id="bgm-diagnostics" class="bgm-diagnostics" hidden aria-live="polite"></div>
   <audio id="bgm-audio" preload="none" loop></audio>
 </div></div></div>
-<div class="side-window side-menu"><div class="side-titlebar"><span>QUICK MENU</span><span>☷</span></div><nav aria-label="빠른 메뉴"><a href="#start"><span>⌂</span> MY HOME</a><a href="#world"><span>▤</span> WORLD FILE</a><a href="#characters"><span>♧</span> CHARACTER</a><a href="#routes"><span>✧</span> START ROUTE</a><a href="#album"><span>▧</span> ALBUM</a><a href="#play"><span>✳</span> EVENT BOARD</a><a href="#profile"><span>⚄</span> PERSONA DICE</a><a href="#creator"><span>☰</span> NOTICE</a></nav></div>
+<div class="side-window side-menu"><div class="side-titlebar"><span>QUICK MENU</span><span>☷</span></div><nav aria-label="빠른 메뉴"><a href="#start"><span>⌂</span> MY HOME</a><a href="#world"><span>▤</span> WORLD FILE</a><a href="#characters"><span>♧</span> CHARACTER</a><a href="#routes"><span>✧</span> START ROUTE</a><a href="#album"><span>▧</span> ALBUM</a><a href="#play"><span>✳</span> EVENT BOARD</a><a href="#profile"><span>⚄</span> PERSONA DICE</a><a href="#user-portraits"><span>▧</span> USER ICONS</a><a href="#creator"><span>☰</span> NOTICE</a></nav></div>
 <div class="side-memo"><span class="memo-pin">✦</span><small>STICKY NOTE</small><p>이곳에 남기는 하루는<br/>당신의 선택으로 완성돼요.</p><span>2078.05 · SAINT-VEIL</span></div>
 </aside><div class="content-main">
 <section id="start" class="section page-width start-section"><p class="eyebrow">START HERE / 여행자 안내</p><div class="section-heading"><h2>생트베일에 처음 오셨나요?</h2><p>모든 설정을 외울 필요는 없어요. 중요한 부분만 알고 시작해도 충분합니다.</p></div>
@@ -131,14 +133,31 @@
     <div class="persona-empty" id="persona-empty"><span>⌁</span><strong>오늘의 페르소나는 누구일까요?</strong><p>주사위를 눌러보세요. 리핀에 붙여넣을 수 있는 프로필이 완성돼요.</p></div>
     <div id="persona-filled" hidden>
       <div class="persona-character-header"><div><span>NEW RESIDENT / FILE NO. <span id="persona-file-no">000</span></span><h3 id="persona-name">-</h3><p id="persona-short">-</p></div><button type="button" id="persona-copy" class="persona-copy">프로필 전체 복사</button></div>
-      <p class="persona-tip">자물쇠를 누르면 다음 주사위에서도 해당 항목이 유지돼요. ↻는 그 항목만 다시 뽑아요.</p>
+      <p class="persona-tip">자물쇠를 누르면 다음 주사위에서도 해당 항목이 유지돼요. ↻는 그 항목만 다시 뽑아요.</p><div class="persona-note-alert"><b>최종 등록용 자동 정리:</b> 「루트별 첫 만남 연결 예시」와 「RP 진행 참고」는 작성용 메모로만 보여드려요. <b>전체 복사·TXT 저장에는 포함되지 않아요.</b> 인물 변수는 <code>{{user}}</code>로 표기합니다.</div>
       <div id="persona-fields" class="persona-fields"></div>
-      <details class="persona-profile-preview" open><summary>리핀 붙여넣기용 완성 프로필</summary><pre id="persona-text"></pre></details>
+      <details class="persona-profile-preview" open><summary>리핀 붙여넣기용 최종 프로필 (작성용 메모 제외)</summary><pre id="persona-text"></pre></details><details class="persona-draft-notes"><summary>작성용 메모 / 최종 등록 전 삭제 — 펼쳐보기</summary><pre id="persona-notes-text"></pre></details>
       <div class="persona-bottom-actions"><button id="persona-copy-bottom" type="button" class="persona-copy">전체 복사</button><button id="persona-download" type="button" class="persona-secondary">TXT 저장</button><span id="persona-count" class="persona-count"></span></div>
     </div>
   </div>
   <div class="persona-world-note">WORLD RULE · 3명의 남자와의 인연은 처음부터 확정되지 않아요. 회백사건의 핵심 비밀을 알고 있거나 특별한 운명을 타고났다는 설정도 자동으로 붙지 않아요. 생성된 설정은 마음껏 수정해서 사용하세요.</div>
 </div></section>
+<section id="user-portraits" class="section section-soft portrait-section"><div class="page-width">
+<p class="eyebrow">USER PROFILE PORTRAIT ARCHIVE / FREE-TO-USE PERSONA ICONS</p>
+<div class="section-heading"><h2>유저 프로필 사진 추천</h2><p>생트베일 분위기로 제작한 추천 이미지 18장이에요. 이 작품뿐 아니라 <b>다른 캐릭터 챗 작품에서 플레이할 때도</b> 유저 프로필 사진으로 사용할 수 있어요. 마음에 드는 이미지를 눌러 크게 보거나 PNG 원본을 받아가세요.</p></div>
+<div class="portrait-license"><strong>이용 범위 / READ BEFORE USE</strong>
+<p>✓ <b>허용:</b> 리핀 및 다른 캐릭터 챗에서 <b>본인의 USER 페르소나·프로필 사진</b>으로 사용. 프로필 칸에 맞춘 단순 크기·비율 조정 가능.</p>
+<p class="no">✕ <b>금지:</b> 캐릭터 챗 제작용 인장·표지·상황 이미지, 자작 캐릭터 콘텐츠나 작품 제작물에 삽입, 재배포·재판매, 본인 제작 이미지로 주장, 이미지 생성 모델의 학습 자료로 이용.</p>
+<p>※ 이미지별 이름과 직업은 <b>참고용 콘셉트</b>일 뿐, 유저 캐릭터의 성별·직업·설정을 고정하지 않아요. 원하는 프로필에 자유롭게 매칭해 주세요.</p></div>
+<div class="portrait-filters" role="group" aria-label="유저 프로필 이미지 분류">
+<button type="button" class="portrait-filter active" data-portrait-filter="all" aria-pressed="true">전체 18장</button>
+<button type="button" class="portrait-filter" data-portrait-filter="음악꽃" aria-pressed="false">꽃 · 음악</button>
+<button type="button" class="portrait-filter" data-portrait-filter="일상" aria-pressed="false">일상</button>
+<button type="button" class="portrait-filter" data-portrait-filter="기술" aria-pressed="false">기술 · 정비</button>
+<button type="button" class="portrait-filter" data-portrait-filter="군경" aria-pressed="false">군 · 경계</button></div>
+<p class="portrait-counter" id="portrait-counter" aria-live="polite">추천 이미지를 불러오는 중...</p>
+<div id="portrait-grid" class="portrait-grid"></div>
+</div></section>
+<div class="portrait-lightbox" id="portrait-lightbox" hidden role="dialog" aria-modal="true" aria-label="유저 프로필 추천 이미지 크게 보기"><button type="button" id="portrait-lightbox-close" class="portrait-lightbox-close" aria-label="이미지 닫기">✕</button><img id="portrait-lightbox-image" alt=""/><p id="portrait-lightbox-caption"></p><a id="portrait-lightbox-download" class="portrait-lightbox-download" download>PNG 원본 받기</a></div>
 <section id="album" class="section section-soft album-section"><div class="page-width">
 <p class="eyebrow">MINI ALBUM / THE ART OF SAINT-VEIL</p><div class="section-heading"><h2>이미지 앨범</h2><p>공개한 이미지가 캐릭터별로 나타나요. 이미지를 누르면 원본 크기로 감상할 수 있어요.</p></div>
 <div class="album-controls"><div class="album-filters" role="group" aria-label="이미지 분류"><button type="button" class="album-chip active" data-album="all" aria-pressed="true">ALL</button><button type="button" class="album-chip" data-album="ash" aria-pressed="false">ASH</button><button type="button" class="album-chip" data-album="ian" aria-pressed="false">IAN</button><button type="button" class="album-chip" data-album="luca" aria-pressed="false">LUCA</button><button type="button" class="album-chip" data-album="world" aria-pressed="false">WORLD</button></div><a class="album-upload-link" href="studio.html">✎ 이미지 정리실 열기 ↗</a></div>
