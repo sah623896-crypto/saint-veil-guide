@@ -1,0 +1,33 @@
+/* Interactive persona generator — mobile-friendly mini RPG register */
+.persona-section{--persona-ink:#354851;--persona-accent:#729493}
+.persona-top{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(165px,.7fr);gap:14px;margin-bottom:17px}
+.persona-controls{background:#fffefa;border:1px solid #cfdad3;padding:24px;box-shadow:4px 4px 0 #d7e5dc}
+.persona-control-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.persona-control-grid label{display:block;font-size:12px;font-weight:750;color:#60767e}
+.persona-control-grid select{display:block;width:100%;background:#f4f8f4;border:1px solid #cfdbd7;border-radius:5px;color:#34515a;padding:10px 8px;margin-top:6px;font-size:12px}
+.persona-help{font-size:12px;color:#77898b;margin:14px 0 17px}
+.persona-actions{display:flex;gap:8px;flex-wrap:wrap}
+.persona-roll,.persona-copy{border:0;background:#354e55;color:#fff;padding:11px 18px;font-size:12px;font-weight:700;border-radius:5px;cursor:pointer}
+.persona-roll{font-size:14px;min-width:178px;box-shadow:3px 3px 0 #9bb8aa}
+.persona-roll span{font-size:19px;vertical-align:-2px;display:inline-block;margin-right:5px}
+.persona-roll .rolling{animation:persona-roll-animation .45s ease-in-out}
+@keyframes persona-roll-animation{0%{transform:rotate(0deg) scale(.8)}50%{transform:rotate(185deg) scale(1.3)}100%{transform:rotate(360deg) scale(1)}}
+.persona-secondary{background:#fff;border:1px solid #cbd8d4;border-radius:5px;color:#516c71;padding:10px 14px;font-size:12px;font-weight:650;cursor:pointer}
+.persona-mini{border:1px solid #c1d2c7;background:#e0ebe5;padding:20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:4px 4px 0 #c1d3c8}
+.persona-mini>span{font-family:monospace;font-size:10px;color:#708c88;letter-spacing:1px}
+.persona-mini strong{font-size:68px;font-family:Georgia,serif;color:#5b8280;line-height:1.2}
+.persona-mini small{font-size:9px;line-height:1.65;letter-spacing:1px;color:#869994}
+.persona-results{background:#fffefa;border:1px solid #dce4dd;padding:26px;min-height:160px}
+.persona-empty{text-align:center;padding:32px 12px}.persona-empty>span{display:block;font:43px Georgia,serif;color:#84a1a0}.persona-empty strong{font-size:18px;color:#46616b}.persona-empty p{font-size:12px;color:#73888b}
+.persona-character-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:16px;border-bottom:1px solid #dce7df}
+.persona-character-header span{color:#87a49d;font-size:10px;letter-spacing:1.3px}.persona-character-header h3{font-size:27px;margin:3px 0;line-height:1.35}.persona-character-header p{font-size:12px;color:#748689;margin:0}.persona-tip{font-size:11px;color:#80908d;margin:12px 0}
+.persona-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.persona-field{padding:12px 13px;border:1px solid #e3eae4;border-radius:5px;background:#f9fbf8;min-width:0}
+.persona-field-top{display:flex;align-items:center;gap:6px;justify-content:space-between}.persona-field-top strong{font-size:11px;color:#7c9999;letter-spacing:.3px}.persona-field-buttons{display:flex;gap:3px}.persona-field-buttons button{border:1px solid #d0dfd6;border-radius:3px;background:white;padding:2px 6px;color:#567676;font-size:12px;cursor:pointer;min-width:28px}.persona-field-buttons button[aria-pressed=true]{color:#7d684c;background:#f2e9d9;border-color:#d2be9e}
+.persona-field-body{font-size:13px;color:#3b5259;margin-top:7px;line-height:1.65;word-break:keep-all}
+.persona-profile-preview{margin-top:22px;border:1px solid #cedbd4;border-radius:6px;background:#eef4ef}.persona-profile-preview summary{cursor:pointer;padding:13px 15px;font-size:13px;font-weight:750;color:#4d7073}.persona-profile-preview pre{white-space:pre-wrap;word-break:keep-all;max-height:500px;overflow:auto;margin:0;padding:16px;background:#f7faf7;border-top:1px solid #d5e2db;color:#3e5559;font-size:12px;line-height:1.85;font-family:inherit}
+.persona-bottom-actions{display:flex;align-items:center;gap:8px;margin-top:13px;flex-wrap:wrap}.persona-count{font-size:11px;color:#879996;margin-left:auto}
+.persona-world-note{background:#e5eeea;border-left:3px solid #7a9e9a;padding:14px 17px;font-size:12px;color:#587078;margin-top:15px}
+@media(max-width:860px){.persona-control-grid{grid-template-columns:1fr}.persona-top{grid-template-columns:minmax(0,1.3fr) minmax(140px,.65fr)}}
+@media(max-width:720px){.persona-top{grid-template-columns:1fr}.persona-control-grid{grid-template-columns:1fr 1fr}.persona-mini{display:none}.persona-controls,.persona-results{padding:17px}.persona-fields{grid-template-columns:1fr}.persona-character-header{align-items:start;flex-direction:column}.persona-character-header h3{font-size:23px}.persona-control-grid label:last-child{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.persona-roll .rolling{animation:none}}

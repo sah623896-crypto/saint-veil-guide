@@ -1,0 +1,25 @@
+/* SAINT-VEIL: music player / editable assets/audio/*.mp3 */
+.bgm-widget{padding:12px 11px 11px;text-align:left}
+.bgm-widget small{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.bgm-status{font-family:monospace;font-size:9px;color:#648e91;background:#e3efea;border-radius:3px;padding:1px 5px}
+.bgm-widget>span#bgm-title{font:12px Georgia,serif;line-height:1.4;margin:6px 0 9px;overflow-wrap:anywhere}
+.bgm-controller{display:flex;align-items:center;gap:6px}
+.bgm-toggle{border:1px solid #a7bcb3;background:#fffefa;border-radius:5px;min-width:32px;min-height:32px;font-size:12px;color:#466269;cursor:pointer;display:grid;place-items:center}
+.bgm-toggle:hover,.bgm-toggle:focus-visible{border-color:#607f89;background:#e4eee9;outline-offset:1px}
+.bgm-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.bgm-controller select{min-width:0;flex:1;height:32px;font-size:11px;color:#476168;border-radius:5px;border:1px solid #cbd9d2;background:#fffefa;padding:0 4px;cursor:pointer}
+.bgm-bottom{display:flex;align-items:center;gap:8px;margin-top:6px}
+.bgm-bars{flex:1;margin-top:0;height:16px}
+.bgm-bars i{background:#91b8ae;transform-origin:bottom;animation:none}
+.bgm-widget.is-playing .bgm-bars i{animation:bgm-jump .75s ease-in-out infinite alternate}
+.bgm-widget.is-playing .bgm-bars i:nth-child(2n){animation-duration:.57s;animation-delay:.17s}
+.bgm-widget.is-playing .bgm-bars i:nth-child(3n){animation-duration:.89s;animation-delay:.26s}
+@keyframes bgm-jump{0%{transform:scaleY(.28)}100%{transform:scaleY(1)}}
+.bgm-volume-label{color:#6e8b84;font-size:12px}
+.bgm-volume{width:60px;min-width:48px;max-width:65px;accent-color:#698e86;height:12px;cursor:pointer}
+.bgm-notice{margin-top:6px!important;font-size:10px!important;line-height:1.45;color:#81908c}
+@media(max-width:720px){.side-status.bgm-widget{display:block;margin-top:10px;padding:9px}.side-profile-inner:has(.bgm-widget){display:block}.bgm-controller select{font-size:10px}}
+@media(max-width:410px){.side-profile-inner:has(.bgm-widget){display:block;text-align:center}.side-profile-inner .bgm-widget{text-align:left}.bgm-volume{width:66px}.bgm-controller{gap:7px}}
+@media(prefers-reduced-motion:reduce){.bgm-widget.is-playing .bgm-bars i{animation:none}}
+
+.bgm-check{display:block;width:100%;border:0;background:transparent;font-size:10px;color:#557980;text-align:left;padding:6px 0 0;text-decoration:underline;cursor:pointer}.bgm-diagnostics{font-size:10px;background:#fffefa;border:1px solid #cadaD1;padding:10px;border-radius:6px;margin-top:8px;overflow-wrap:anywhere}.bgm-diagnostics div{margin-top:5px;line-height:1.55}.bgm-diagnostics p{margin:0 0 4px}.bgm-healthy{color:#3b7862}.bgm-unhealthy{color:#bd5555}.bgm-diagnostics a{display:block;color:#546b8c;text-decoration:underline}
