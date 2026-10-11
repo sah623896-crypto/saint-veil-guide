@@ -13,6 +13,9 @@
     { name:'애쉬 벨몬트 · 공식 인장', cat:'ash', url:'assets/ash.webp', thumb:'assets/ash.webp' },
     { name:'이안 에버렛 · 공식 인장', cat:'ian', url:'assets/ian.webp', thumb:'assets/ian.webp' },
     { name:'루카 세레인 · 공식 인장', cat:'luca', url:'assets/luca.webp', thumb:'assets/luca.webp' },
+    { name:'애쉬 벨몬트 · 보너스 일러스트', cat:'ash', file:'ash-homepage-bonus.png', url:'assets/gallery/ash/ash-homepage-bonus.png', thumb:'assets/gallery/ash/ash-homepage-bonus.png' },
+    { name:'이안 에버렛 · 보너스 일러스트', cat:'ian', file:'ian-homepage-bonus.png', url:'assets/gallery/ian/ian-homepage-bonus.png', thumb:'assets/gallery/ian/ian-homepage-bonus.png' },
+    { name:'루카 세레인 · 보너스 일러스트', cat:'luca', file:'luca-homepage-bonus.png', url:'assets/gallery/luca/luca-homepage-bonus.png', thumb:'assets/gallery/luca/luca-homepage-bonus.png' },
   ];
   let entries = seeds.slice();let selected='all';
   const typeOk=name=> /\.(png|jpe?g|webp|gif|avif)$/i.test(name);
@@ -52,7 +55,7 @@
   const repo=config.repo || (inferredOwner ? (location.pathname.split('/').filter(Boolean)[0] || `${inferredOwner}.github.io`) : '');
   const branch=config.branch || 'main';
   if (!owner || !repo || !/^[\w.-]+$/.test(owner)||!/^[\w.-]+$/.test(repo)) {
-    counter.textContent='기본 인장을 표시하고 있어요 · 추가 이미지가 있다면 GitHub Pages에서 자동으로 나타나요.';
+    counter.textContent=`기본 공개 이미지 ${entries.length}장 표시 · GitHub Pages 배포 후 추가 이미지도 자동으로 확인합니다.`;
     return;
   }
   const groups=['ash','ian','luca','world'];
@@ -62,7 +65,7 @@
       const r=await fetch(url,{headers:{Accept:'application/vnd.github+json'}});
       if (!r.ok) return [];
       const data=await r.json();if (!Array.isArray(data))return [];
-      return data.filter(f=>f.type==='file'&&typeOk(f.name)&&f.download_url).map(f=>({name:friendly(f.name),cat,url:f.download_url,thumb:f.download_url}));
+      return data.filter(f=>f.type==='file'&&typeOk(f.name)&&f.download_url && !seeds.some(s=>s.cat===cat && s.file===f.name)).map(f=>({name:friendly(f.name),cat,url:f.download_url,thumb:f.download_url}));
     } catch{return [];}
   })).then(groups=>{entries=seeds.concat(...groups);render();}).catch(()=>render());
 })();
